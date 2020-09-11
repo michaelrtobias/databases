@@ -15,7 +15,7 @@ con.connect((err) => {
   if (err) {
     throw err;
   } else {
-    console.log('CONNECTED');
+    console.log('CONNECTED! MYSQL INITIATED');
   }
 });
 
