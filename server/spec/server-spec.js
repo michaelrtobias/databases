@@ -31,6 +31,7 @@ describe('Persistent Node Chat Server', function() {
 
   it('Should insert posted messages to the DB', function(done) {
 
+    debugger;
     // Post the user to the chat server.
     request({
       method: 'POST',
