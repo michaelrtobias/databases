@@ -12,12 +12,12 @@ module.exports = {
   },
 
   post: function (req, res) {
-    var params = [req.body[username]];
+    var params = [req.body.username];
     models.messages.create(params, (err, result) => {
       if (err) {
         throw err;
       } else {
-        res.json(result);
+        res.sendStatus(201);
       }
     });
   }

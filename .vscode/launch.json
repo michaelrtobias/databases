@@ -5,6 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
+<<<<<<< HEAD
       "name": "Launch via NPM",
       "request": "launch",
       "runtimeArgs": [
@@ -20,6 +21,8 @@
 
 
     {
+=======
+>>>>>>> 8fad83edc0925c96003b8b93cba47c6bee881a00
       "type": "node",
       "request": "launch",
       "name": "Launch Program",

@@ -2,7 +2,9 @@ var db = require('../db');
 
 module.exports = {
   getAll: function (callback) {
-    var queryStr = "SELECT messages.id, messages.chat_content, messages.roomname, users.username FROM messages OUTER JOIN users ON (messages.user_id = users.id)";
+    var queryStr = 'SELECT messages.id, messages.text, messages.roomname \
+    LEFT OUTER JOIN users ON (messages.userid = users.id) \
+    order by messages.id desc';
     db.query(queryStr, (err, results) => {
       if (err) {
         throw err;
@@ -14,7 +16,8 @@ module.exports = {
   }, // a function which produces all the messages
 
   create: function (params, callback) {
-    var queryStr = "INSERT INTO messages (chat_content, user_id, roomname) VALUES (?, ?, ?)";
+    var queryStr = 'INSERT INTO messages (text, userid, roomname) \
+    VALUES (?, (SELECT id FROM users WHERE username = ? limit 1), ?)';
     db.query(queryStr, params, (err, results) => {
       if (err) {
         throw err;

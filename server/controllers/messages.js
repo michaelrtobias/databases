@@ -11,12 +11,12 @@ module.exports = {
     });
   }, // a function which handles a get request for all messages
   post: function (req, res) {
-    var params = [req.body[chat_content], req.body[user_id], req.body[roomname]];
+    var params = [req.body.message, req.body.userid, req.body.roomname];
     models.messages.create(params, (err, result) => {
       if (err) {
         throw err;
       } else {
-        res.json(result);
+        res.sendStatus(201);
       }
     });
   }
